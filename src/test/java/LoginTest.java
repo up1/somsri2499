@@ -27,4 +27,18 @@ public class LoginTest {
         assertFalse("Login fail", isLogin);
     }
 
+    @Test public void
+    fail_with_wrong_username_username_somkiat_and_password_somsri24981() {
+        User user = new User();
+        boolean isLogin = user.login("somkiat", "somsri2498");
+        assertFalse("Login fail", isLogin);
+    }
+
+    @Test public void
+    fail_with_wrong_username_username_somkiat_and_password_somsri24982() {
+        User user = new User();
+        boolean isLogin = user.login("somkiat", "somsri2498");
+        assertFalse("Login fail", isLogin);
+    }
+
 }
