@@ -29,13 +29,13 @@ public class LoginController extends HttpServlet {
 		ServletOutputStream out = response.getOutputStream();
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		String user = req.getParameter("user");
-		String pin = req.getParameter("pin");
+		String username = req.getParameter("text_user");
+		String password = req.getParameter("text_password");
 
-		Login login = new Login();
-		boolean isLoggedin = login.checkUser(user, pin);
-		if( isLoggedin ) {
-			out.write("สวัสดีจ๊ะ".getBytes("UTF-8"));
+		User user = new User();
+		boolean isLogin = user.login(username, password);
+		if( isLogin ) {
+			out.write("SUCCESS".getBytes("UTF-8"));
 		}
 		out.flush();
 		out.close();

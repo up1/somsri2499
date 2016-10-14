@@ -1,15 +1,30 @@
-import demo.grade.Login;
+import demo.User;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class LoginTest {
 
     @Test public void
-    login_success_with_user_somkiat_and_pin_1234() {
-        Login login = new Login();
-        boolean isLoggedin = login.checkUser("somkiat", "1234");
-        assertTrue("Login should success", isLoggedin);
+    success_with_username_somsri_and_password_somsri2499() {
+        User user = new User();
+        boolean isLogin = user.login("somsri", "somsri2499");
+        assertTrue("Login succeed", isLogin);
+    }
+
+    @Test public void
+    fail_with_wrong_password_username_somsri_and_password_somsri2498() {
+        User user = new User();
+        boolean isLogin = user.login("somsri", "somsri2498");
+        assertFalse("Login fail", isLogin);
+    }
+
+    @Test public void
+    fail_with_wrong_username_username_somkiat_and_password_somsri2498() {
+        User user = new User();
+        boolean isLogin = user.login("somkiat", "somsri2498");
+        assertFalse("Login fail", isLogin);
     }
 
 }
